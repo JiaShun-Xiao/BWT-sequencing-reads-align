@@ -43,10 +43,35 @@ python align_reads_sorted.py jiankuihe-exome-1.fq
 ```
 <img src="./images/6.png" width=600 height=400 />
 
-chromosome|1|2|3|4|5|6|7|8|9|10|11|12
-----------|-|-|-|-|-|-|-|-|-|--|--|--
-successful aligned reads|1364494|1094732|700723|647999|600183|663716|672823|456356|538785|538785|638643|624182 
+chromosome | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | X | Y | M
+-------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---- | --- | ---- | --- | --- | --- | ---- | --- | ---
+successfully aligned reads | 1364494 | 1094732 | 700723 | 647999 | 600183 | 663716 | 672823 | 456356 | 538785 | 553156 | 638643 | 624182  | 255531 | 397424 | 496341 | 472183 | 595685 | 224039 | 531805 | 220418 | 144303 | 219406 | 306813 | 75852 | 3681
 
-chromosome|13|14|15|16|17|18|19|20|21|22|X|Y|M
-----------|--|--|--|--|--|--|--|--|--|--|-|-|---
-successful aligned reads|255531 |397424 |496341 |472183 |595685 |224039 |531805 |220418 |144303 |219406 |306813 |75852 |3681 
+###making pileup
+```bash
+python pileup.py 
+# pileup.py will make a statistic of reads align in each base of reference genome.
+# this will output 25 pileup file.
+```
+<img src="./images/7.png" width=400 height=800 />
+<img src="./images/8.png" width=400 height=600 />
+
+###making vcf
+```bash
+python vcf.py 
+# vcf.py will find Single Nucletide Polymorphism(SNP) form pileup files, min coverage:6.
+# this will output 25 vcf file.
+```
+<img src="./images/10.png" width=400 height=600 />
+<img src="./images/9.png" width=800 height=400 />
+
+```bash
+python vcf_calibrate.py 
+# because we exclude the 'N' and intron sequence in hg19.fa, thus, the location of SNP need to be calibrate by vcf_calibrate.py.
+# this will output 25 vcf_new file.
+```
+chromosome | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | X | Y | M
+-------- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---- | --- | ---- | --- | --- | --- | ---- | --- | ---
+SNP number | 3415| 2845 | 1953 | 1699 | 1574 | 1868 | 1805 | 1252 | 1435 | 1554 | 2037 | 1883 | 811 | 1228 | 1307 | 1244 | 1429 | 693 | 1671 | 663 | 594 | 787 | 631 | 242 | 24
+<img src="./images/11.png" width=400 height=600 />
+<img src="./images/12.png" width=800 height=400 />
