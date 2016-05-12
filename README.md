@@ -14,7 +14,7 @@ This is the course project for Bioinformatics(BI3204 2016.02-2016.06) at [SUSTC]
   - [making vcf](#making-vcf)
 
 ## Introduction to BWT and alignment algorithms
-I recommend you reading the [BWT-aligner](https://github.com/RodenLuo/BWT-Aligner.git) writer by RodenLuo.
+I recommend you to read the [BWT-aligner](https://github.com/RodenLuo/BWT-Aligner.git) writer by RodenLuo.
 
 ## BWT and Alignment implementation in python: For human genome
 ### construct library
